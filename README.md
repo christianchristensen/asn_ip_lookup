@@ -5,10 +5,10 @@ ASN<->IP lookup using RIR published datasets
 
 Example lookup of OpenDNS
 ```
-$ ./lookup.sh 208.67.222.222
-registry|cc|ip|range|date|asn|name
-arin|US|208.67.216.0|2048|20060606|30607|302-DIRECT-MEDIA-ASN, US
-arin|US|208.67.216.0|2048|20060606|36692|OPENDNS, US
+$ ./lookup.sh 208.67.222.222 | column -s\| -t
+registry  cc  ip            range  date      asn    name
+arin      US  208.67.216.0  2048   20060606  30607  302-DIRECT-MEDIA-ASN, US
+arin      US  208.67.216.0  2048   20060606  36692  OPENDNS, US
 ```
 
 
