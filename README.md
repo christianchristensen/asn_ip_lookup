@@ -6,9 +6,11 @@ ASN<->IP lookup using RIR published datasets
 Example lookup of OpenDNS
 ```
 $ ./lookup.sh 208.67.222.222 | column -s\| -t
-registry  cc  ip            range  date      asn    name
-arin      US  208.67.216.0  2048   20060606  30607  302-DIRECT-MEDIA-ASN, US
-arin      US  208.67.216.0  2048   20060606  36692  OPENDNS, US
+cidr             asn    ip_width      name
+208.67.222.0/24  36692  256           OPENDNS, US
+registry         cc     ip            range        date      asn    name
+arin             US     208.67.216.0  2048         20060606  30607  302-DIRECT-MEDIA-ASN, US
+arin             US     208.67.216.0  2048         20060606  36692  OPENDNS, US
 ```
 
 
@@ -54,7 +56,11 @@ ripencc|*|ipv4|*|86777|summary
 ripencc|*|asn|*|42533|summary
 ripencc|*|ipv6|*|97111|summary
 $ ./process.sh
+$ ./get_routeviews.sh
+$ ./process_routeviews.sh
 $ ./lookup.sh 1.1.1.1
+cidr|asn|ip_width|name
+1.1.1.0/24|13335|256|CLOUDFLARENET, US
 registry|cc|ip|range|date|asn|name
 apnic|AU|1.1.1.0|256|20110811|9838|APNIC-DEBOGON-AS-AP APNIC Debogon Project, AU
 apnic|AU|1.1.1.0|256|20110811|24021|APNICRANDNET-TUI-AU TUI experiment, AU
@@ -62,12 +68,14 @@ apnic|AU|1.1.1.0|256|20110811|38610|APNIC-JP-RD APNIC R&D Centre, JP
 apnic|AU|1.1.1.0|256|20110811|131072|APNIC-RD-AP APNIC R&D Centre, AU
 apnic|AU|1.1.1.0|256|20110811|131074|APNIC-JP-RD APNIC R&D Centre JP, AU
 $ ls
-README.md                               delegated-afrinic-extended-latest       ipv4.csv
-TODO                                    delegated-apnic-extended-latest         lookup.sh
-asn.csv                                 delegated-arin-extended-latest          process.sh
-asn.txt                                 delegated-lacnic-extended-latest        schema.sql
-asn_ip.db                               delegated-ripencc-extended-latest       summary.csv
-asn_names.csv                           get.sh
+README.md                               delegated-arin-extended-latest          process.sh
+TODO                                    delegated-lacnic-extended-latest        process_routeviews.sh
+asn.csv                                 delegated-ripencc-extended-latest       rib.20210829.2000.bz2
+asn.txt                                 eqix.csv                                schema.sql
+asn_ip.db                               get.sh                                  summary.csv
+asn_names.csv                           get_routeviews.sh                       version.csv
+delegated-afrinic-extended-latest       ipv4.csv
+delegated-apnic-extended-latest         lookup.sh
 ```
 
 ### refs:

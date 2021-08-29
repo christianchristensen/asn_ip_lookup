@@ -24,3 +24,12 @@ CREATE TABLE ipv4(
   "dec_start" INTEGER,
   "dec_end" INTEGER
 );
+CREATE TABLE routeviews_ipv4(
+  "cidr" TEXT,
+  "aspath" TEXT,
+  "as1" INTEGER,
+  "asN" INTEGER,
+  "dec_start" INTEGER,
+  "dec_end" INTEGER,
+  "dec_width" INTEGER
+);

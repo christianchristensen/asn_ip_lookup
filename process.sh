@@ -28,6 +28,7 @@ awk -F\| '($6!="summary"&&$3=="asn")' delegated-* | awk -F\| '($6!="summary"&&$3
 # Fix ripencc & lacnic last column
 
 # IPv4
+# https://stackoverflow.com/questions/10768160/ip-address-converter
 echo 'registry|cc|type|start|value|date|status|reg_id|dec_start|dec_end' > ipv4.csv
 awk -F\| '($6!="summary"&&$3=="ipv4"&&$1=="ripencc"&&($7=="available"||$7=="reserved")) {$0=$0"|"} {print}' delegated-* | awk -F\| '($6!="summary"&&$3=="ipv4"&&$1=="lacnic"&&($7=="available")) {$0=$0"|"} {print}' | awk -F\| '($6!="summary"&&$3=="ipv4") { ip=$4; split(ip, octets, "."); dec=0; for(i=1;i<=4;i++){dec+=octets[i]*256 **(4-i)}; print $0"|"dec"|"dec+$5}' >> ipv4.csv
 # Fix ripencc last column

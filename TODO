@@ -1,3 +1,4 @@
 Cleanup quoting and mixed shells
 Use Routeviews to get more up-to-date lookup (from actual announcements)
+Iterate over multiple routeviews to lookup from different vantage points (should be the same, but the difference could be interesting)
 Consider processing transfers or history (change over time)
