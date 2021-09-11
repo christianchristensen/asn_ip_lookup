@@ -1,5 +1,5 @@
 CREATE TABLE asn_names(
-  "asn" INTEGER,
+  "asn" INTEGER PRIMARY KEY,
   "name" TEXT
 );
 CREATE TABLE asn(
@@ -24,12 +24,14 @@ CREATE TABLE ipv4(
   "dec_start" INTEGER,
   "dec_end" INTEGER
 );
-CREATE TABLE routeviews_ipv4(
+CREATE TABLE caida_rv2_pfx2as(
   "cidr" TEXT,
-  "aspath" TEXT,
-  "as1" INTEGER,
-  "asN" INTEGER,
+  "asn" INTEGER,
   "dec_start" INTEGER,
   "dec_end" INTEGER,
-  "dec_width" INTEGER
+  "dec_width" INTEGER,
+  PRIMARY KEY (dec_start,dec_end)
 );
+CREATE INDEX idx_ipdec ON caida_rv2_pfx2as (dec_start,dec_end);
+CREATE INDEX idx_ipdecas ON caida_rv2_pfx2as (dec_start,dec_end,asn);
+CREATE INDEX idx_asn ON asn (asn);
