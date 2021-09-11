@@ -87,3 +87,9 @@ ftp://ftp.ripe.net/pub/stats/ripencc/delegated-ripencc-extended-latest
 https://ron.sh/how-ip-to-country-lookup-work-under-the-hood/
 https://ahermosilla.com/tools/2020/07/07/where-ip-data-lives.html
 https://blogofsomeguy.com/a/fastmetrics-p4-mapping-ip-to-asn/
+https://publicdata.caida.org/datasets/routing/routeviews-prefix2as/
+http://archive.routeviews.org/dnszones/ (ref slide 15 https://archive.apnic.net/meetings/19/docs/sigs/routing/routing-pres-jaeggli-routeviews-update.pdf)
+```
+$ host -t txt 1.1.1.1.asn.routeviews.org
+1.1.1.1.asn.routeviews.org descriptive text "13335" "1.1.1.0" "24"
+```

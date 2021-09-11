@@ -1,6 +1,8 @@
+Update get_routeviews.sh to get latest --> use dnszones:originas.bz2 or caida:pfx2as
 Cleanup quoting and mixed shells
 Cleanup IP bounds (off-by-one check...)
 Use Routeviews to get more up-to-date lookup (from actual announcements)
 Iterate over multiple routeviews to lookup from different vantage points (should be the same, but the difference could be interesting)
-sqlite access via HTML/HTTP-range - https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/
 Consider processing transfers or history (change over time)
+Pull in peeringdb information
+* AS -> exchange points and facilities

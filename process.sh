@@ -6,7 +6,8 @@
 # Import each row into sqlite
 #
 
-echo 'asn|name' > asn_names.csv
+#echo 'asn|name' > asn_names.csv
+rm asn_names.csv # Schema includes header info
 sed -e s'/\ /|/' asn.txt >> asn_names.csv
 
 ###
@@ -23,13 +24,15 @@ echo 'registry|N1|type|N2|count|summary' > summary.csv
 awk -F\| '($6=="summary")' delegated-* >> summary.csv
 
 # ASN
-echo 'registry|cc|type|start|value|date|status|reg_id' > asn.csv
+#echo 'registry|cc|type|start|value|date|status|reg_id' > asn.csv
+rm asn.csv # Schema includes header info
 awk -F\| '($6!="summary"&&$3=="asn")' delegated-* | awk -F\| '($6!="summary"&&$3=="asn"&&$1=="ripencc"&&($7=="reserved"||$7=="available")) {$0=$0"|"} {print}' | awk -F\| '($6!="summary"&&$3=="asn"&&$1=="lacnic"&&($7=="available")) {$0=$0"|"} {print}' >> asn.csv
 # Fix ripencc & lacnic last column
 
 # IPv4
 # https://stackoverflow.com/questions/10768160/ip-address-converter
-echo 'registry|cc|type|start|value|date|status|reg_id|dec_start|dec_end' > ipv4.csv
+#echo 'registry|cc|type|start|value|date|status|reg_id|dec_start|dec_end' > ipv4.csv
+rm ipv4.csv # Schema includes header info
 awk -F\| '($6!="summary"&&$3=="ipv4"&&$1=="ripencc"&&($7=="available"||$7=="reserved")) {$0=$0"|"} {print}' delegated-* | awk -F\| '($6!="summary"&&$3=="ipv4"&&$1=="lacnic"&&($7=="available")) {$0=$0"|"} {print}' | awk -F\| '($6!="summary"&&$3=="ipv4") { ip=$4; split(ip, octets, "."); dec=0; for(i=1;i<=4;i++){dec+=octets[i]*256 **(4-i)}; print $0"|"dec"|"dec+$5}' >> ipv4.csv
 # Fix ripencc last column
 
