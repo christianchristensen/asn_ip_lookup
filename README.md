@@ -67,16 +67,9 @@ apnic|AU|1.1.1.0|256|20110811|24021|APNICRANDNET-TUI-AU TUI experiment, AU
 apnic|AU|1.1.1.0|256|20110811|38610|APNIC-JP-RD APNIC R&D Centre, JP
 apnic|AU|1.1.1.0|256|20110811|131072|APNIC-RD-AP APNIC R&D Centre, AU
 apnic|AU|1.1.1.0|256|20110811|131074|APNIC-JP-RD APNIC R&D Centre JP, AU
-$ ls
-README.md                               delegated-arin-extended-latest          process.sh
-TODO                                    delegated-lacnic-extended-latest        process_routeviews.sh
-asn.csv                                 delegated-ripencc-extended-latest       rib.20210829.2000.bz2
-asn.txt                                 eqix.csv                                schema.sql
-asn_ip.db                               get.sh                                  summary.csv
-asn_names.csv                           get_routeviews.sh                       version.csv
-delegated-afrinic-extended-latest       ipv4.csv
-delegated-apnic-extended-latest         lookup.sh
 ```
+
+(Note `.gitignore` for temp file creation left on filesystem.)
 
 ### refs:
 * ftp://ftp.afrinic.net/stats/afrinic/delegated-afrinic-extended-latest
